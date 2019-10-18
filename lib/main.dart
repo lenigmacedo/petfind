@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:petfind/models/user_model.dart';
 import 'package:petfind/ui/SplashScreen.dart';
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
     return ScopedModel<UserModel>(
       model: UserModel(),
       child: MaterialApp(
-        title: "FindPet",
+        title: "FindPetsasa",
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
       ),

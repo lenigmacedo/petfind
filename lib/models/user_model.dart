@@ -1,8 +1,9 @@
 import 'dart:ui';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserModel extends Model {
   FirebaseAuth _auth = FirebaseAuth.instance;
@@ -97,5 +98,17 @@ class UserModel extends Model {
     }
 
     notifyListeners();
+  }
+
+  Future<Null> savePetData(Map<String, dynamic> data) async {
+    isLoading = true;
+    notifyListeners();
+
+    await Firestore.instance.collection("pets").add(data).then((result) {
+      Future.delayed(Duration(seconds: 2)).then((a) {
+        isLoading = false;
+        notifyListeners();
+      });
+    });
   }
 }

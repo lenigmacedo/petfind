@@ -25,11 +25,11 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Container(
               decoration: BoxDecoration(gradient: Theme.ColorsTheme.gradient),
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height >= 800
+              height: MediaQuery.of(context).size.height >= 600
                   ? MediaQuery.of(context).size.height
-                  : 400,
+                  : 600,
               child: SafeArea(
-                minimum: EdgeInsets.only(top: 80),
+                minimum: EdgeInsets.only(top: 60),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
@@ -109,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: ScopedModelDescendant<UserModel>(
                               builder: (context, child, model) {
                             if (model.isLoading) {
-                              Center(
+                              return Center(
                                 child: Container(
                                   child: CircularProgressIndicator(),
                                   padding: EdgeInsets.all(100),

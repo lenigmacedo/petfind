@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:petfind/models/user_model.dart';
 import 'package:petfind/theme/theme.dart' as Theme;
+import 'package:petfind/ui/PetsLostScreen.dart';
+import 'package:petfind/ui/RegisterLostScreen.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,13 +20,15 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Container(
           decoration: BoxDecoration(gradient: Theme.ColorsTheme.gradient),
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height >= 800
+          height: MediaQuery.of(context).size.height >= 600
               ? MediaQuery.of(context).size.height
-              : 400,
+              : 600,
           child: SafeArea(
               minimum: EdgeInsets.only(top: 50),
               child: ScopedModelDescendant<UserModel>(
                   builder: (context, child, model) {
+                var name = model.userData["name"];
+
                 return Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
@@ -37,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Padding(
                         padding: EdgeInsets.fromLTRB(0, 30, 0, 30),
                         child: Text(
-                          model.userData["name"] +", seja bem vindo(a) ao FindPet",
+                          name + ", seja bem vindo(a) ao FindPet",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.white,
@@ -49,7 +53,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 100,
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => PetsLost()));
+                        },
                         child: Container(
                             height: 100,
                             width: 300,
@@ -61,10 +68,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                   padding: EdgeInsets.symmetric(
                                       vertical: 25, horizontal: 10),
                                   child: Text(
-                                    "Perdeu seu animal?",
+                                    "Feed animais perdidos",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                        fontSize: 26,
+                                        fontSize: 22,
                                         color: Theme.ColorsTheme.primaryColor,
                                         fontFamily: "BorisBlackBloxx"),
                                   ),
@@ -81,17 +88,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 25, horizontal: 10),
-                                child: Text(
-                                  "EM BREVE",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 26,
-                                      color: Theme.ColorsTheme.primaryColor,
-                                      fontFamily: "BorisBlackBloxx"),
-                                ),
-                              )))
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 25, horizontal: 10),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  RegisterLostScreen()));
+                                    },
+                                    child: Text(
+                                      "Perdeu seu animal?",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontSize: 22,
+                                          color: Theme.ColorsTheme.primaryColor,
+                                          fontFamily: "BorisBlackBloxx"),
+                                    ),
+                                  ))))
                     ]);
               })),
         )));
