@@ -41,7 +41,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       Padding(
                         padding: EdgeInsets.fromLTRB(0, 30, 0, 30),
                         child: Text(
-                          name + ", seja bem vindo(a) ao FindPet",
+                          name == null
+                              ? "Carregando"
+                              : "$name, seja bem vindo(a) ao FindPet",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.white,
