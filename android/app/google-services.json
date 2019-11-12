@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "23642888232",
+    "firebase_url": "https://findpet-c2bee.firebaseio.com",
+    "project_id": "findpet-c2bee",
+    "storage_bucket": "findpet-c2bee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:23642888232:android:048e65b40bb9518b1f3d1d",
+        "android_client_info": {
+          "package_name": "com.petfind.petfind"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "23642888232-595tev6eh5coar8174j6bm23fm8k3hsh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo9TreQiwdJ6SMUH8at-060iSbn7gK7F8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "23642888232-595tev6eh5coar8174j6bm23fm8k3hsh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
